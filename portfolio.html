@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jad Saati - professional Web Developer">
+    <title>Jad Saati - Web Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+*{
+margin:0;
+padding: 0;
+box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, Arial, sans-serif;
+    background-color: #050510;
+    color:#e0e0e0;
+    line-height:1.6;
+    overflow-x:hidden;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.nav{
+    position: sticky;
+    top:0;
+    background-color: rgba(5,5,16,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid rgba(96,28,252,0.2);
+    z-index:999;
+    padding: 1rem 0;
+}
+
+.nav-container{
+    max-width:1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:1rem;
+}
+
+.nav-logo{
+    font-size:1.1rem;
+    font-weight: 700;
+    color:#601cfc;
+    letter-spacing: 0.5px;
+}
+
+.nav-links{
+    display: flex;
+    gap:2rem;
+    flex-wrap:wrap;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#e0e0e0;
+    text-decoration:none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover{
+    color:#601cfc;
+}
+
+/* Hero Section */
+.hero{
+    position: relative;
+    min-height:90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    overflow:hidden;
+}
+
+.hero-background-image{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(0.3) contrast(1.2);
+}
+
+.hero::before{
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: linear-gradient(135deg, rgba(11,11,22,0.7) 0%, rgba(26,10,46,0.7) 50%, rgba(11,11,22,0.7) 100%);
+    z-index:1;
+}
+
+.hero-content{
+    z-index: 2;
+    text-align: center;
+    max-width: 900px;
+}
+
+.hero-title{
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #ffffff 0%, #601cfc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle{
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color:#b0b0b0;
+    margin-bottom: 3rem;
+}
+
+.hero-buttons{
+    display: flex;
+    gap:1.5rem;
+    justify-content: center;
+    flex-wrap:wrap;
+    margin-bottom: 3rem;
+}
+
+.btn{
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary{
+    background-color: #601cfc;
+    color:#e0e0e0;
+    border: none;
+    box-shadow: 0 4px 20px rgba(96, 28, 252, 0.4);
+}
+
+.btn-primary:hover{
+    background-color: #7a3dff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(96, 28, 252, 0.6);
+}
+
+.btn-secondary{
+    background-color: transparent;
+    color: #601cfc;
+    border: 2px solid #601cfc;
+}
+
+.btn-secondary:hover{
+    background-color: rgba(96, 28, 252, 0.1);
+    transform: translateY(-2px);
+}
+
+.hero-icons{
+    display: flex;
+    gap:2rem;
+    justify-content: center;
+    font-size: 2rem;
+    color:#601cfc;
+    opacity:0.6;
+}
+
+/* General Section Styles */
+.section{
+    padding: 6rem 0;
+}
+
+.section-title{
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    color:#fff;
+}
+
+.section-subtitle{
+    text-align: center;
+    font-size: 1.1rem;
+    color:#b0b0b0;
+    margin-bottom: 4rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Reel Section */
+.reel-section{
+    background-color: #0b0b16;
+}
+
+.video-wrapper{
+    max-width: 900px;
+    margin: 0 auto;
+    aspect-ratio: 16/9;
+    position: relative;
+    border-radius: 12px;
+    overflow:hidden;
+    box-shadow: 0 10px 40px rgba(96, 28, 252, 0.3);
+}
+
+.video-wrapper iframe{
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    position: absolute;
+}
+
+/* Projects Section */
+.projects-section{
+    background-color: #050510;
+}
+
+.projects-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap:2rem;
+}
+
+.project-card{
+    background-color: #0f0f1e;
+    border-radius: 12px;
+    overflow:hidden;
+    border:1px solid rgba(96, 28, 252, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 12px 40px rgba(96, 28, 252, 0.4);
+    border-color:rgba(96, 28, 252, 0.5);
+}
+
+.project-thumbnail{
+    width:100%;
+    height:220px;
+    overflow: hidden;
+    background-color: #1a1a2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-thumbnail img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-thumbnail img{
+    transform: scale(1.05);
+}
+
+.project-icon-thumb {
+    font-size: 4rem;
+    color: #601cfc;
+    opacity: 0.7;
+}
+
+.project-content{
+    padding: 1.5rem;
+}
+
+.project-label{
+    font-size: 1.3rem;
+    font-weight: 700;
+    color:#ffffff;
+    margin-bottom: 0.75rem;
+}
+
+.project-description{
+    font-size: 0.95rem;
+    color:#b0b0b0;
+    margin-bottom: 1.25rem;
+    line-height:1.5;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.project-tag {
+    background-color: rgba(96, 28, 252, 0.15);
+    color: #9b6fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(96, 28, 252, 0.3);
+}
+
+.project-link{
+    display: inline-flex;
+    align-items:center;
+    gap:0.5rem;
+    color:#601cfc;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: gap 0.3s ease;
+}
+
+.project-link:hover{
+    gap:0.75rem;
+}
+
+/* About Section */
+.about-section{
+    background-color: #0b0b16;
+}
+
+.about-grid{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap:3rem;
+    align-items: stretch;
+    max-width:1100px;
+    margin: 0 auto;
+}
+
+.about-image-wrapper{
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 10px 40px rgba(96, 28, 252, 0.3);
+    height:100%;
+}
+
+.about-image{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    display: block;
+}
+
+.about-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-text{
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color:#b0b0b0;
+    margin-bottom: 2rem;
+}
+
+.skills-section{
+    background-color: #0f0f1e;
+    padding: 2rem;
+    border-radius: 12px;
+    border:1px solid rgba(96, 28, 252, 0.2);
+}
+
+.skills-title{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color:#ffffff;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.skills-list{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap:1rem;
+}
+
+.skills-list li{
+    display: flex;
+    align-items: center;
+    gap:0.75rem;
+    font-size:1rem;
+    color:#d0d0d0;
+}
+
+.skills-list i{
+    color:#601cfc;
+    font-size: 1.2rem;
+    min-width: 20px;
+}
+
+/* Process Section */
+.process-section{
+    background-color: #050510;
+}
+
+.process-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap:2.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.process-step{
+    text-align: center;
+    padding: 2rem;
+    background-color: #0f0f1e;
+    border-radius: 12px;
+    border:1px solid rgba(96, 28, 252, 0.2);
+    transition: border-color 0.3s ease;
+}
+
+.process-step:hover{
+    border-color: rgba(96, 28, 252, 0.5);
+}
+
+.process-number{
+    font-size: 3rem;
+    font-weight: 800;
+    color:#601cfc;
+    margin-bottom: 1rem;
+    opacity:0.3;
+}
+
+.process-step-title{
+    font-size:1.3rem;
+    font-weight: 700;
+    color:#ffffff;
+    margin-bottom: 1rem;
+}
+
+.process-step-description{
+    font-size: 0.95rem;
+    color:#b0b0b0;
+}
+
+/* FAQ Section */
+.faq-section {
+    background-color: #050510;
+}
+
+.faq-list {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.faq-category-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #601cfc;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    padding-left: 0.25rem;
+}
+
+.faq-item {
+    background-color: #0f0f1e;
+    border: 1px solid rgba(96, 28, 252, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: rgba(96, 28, 252, 0.5);
+}
+
+.faq-item[open] {
+    border-color: #601cfc;
+}
+
+.faq-question {
+    padding: 1.5rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #ffffff;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: rgba(96, 28, 252, 0.08);
+}
+
+.faq-question::after {
+    content: "+";
+    font-size: 1.5rem;
+    color: #601cfc;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.faq-item[open] .faq-question::after {
+    content: "−";
+}
+
+.faq-answer {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    border-top: 1px solid rgba(96, 28, 252, 0.1);
+}
+
+.faq-answer p {
+    color: #b0b0b0;
+    line-height: 1.8;
+    padding-top: 1rem;
+    font-size: 0.97rem;
+}
+
+.faq-answer ul {
+    margin-top: 0.75rem;
+    padding-left: 1.25rem;
+    color: #b0b0b0;
+    line-height: 1.8;
+    font-size: 0.97rem;
+}
+
+.faq-answer li {
+    margin-bottom: 0.35rem;
+}
+
+.faq-answer strong {
+    color: #d0d0d0;
+}
+
+.faq-answer .highlight {
+    display: inline-block;
+    background-color: rgba(96, 28, 252, 0.15);
+    color: #9b6fff;
+    padding: 0.15rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin: 0 0.1rem;
+}
+
+/* Footer */
+.footer {
+    background-color: #050510;
+    padding: 3rem 0;
+    border-top: 1px solid rgba(96, 28, 252, 0.2);
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.footer p {
+    color: #b0b0b0;
+    font-size: 0.95rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-social a {
+    color: #601cfc;
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #7a3dff;
+    transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .about-text { text-align: center; }
+    .skills-title { text-align: center; }
+}
+
+@media (max-width: 768px) {
+    .nav-container { flex-direction: column; align-items: flex-start; }
+    .nav-links { flex-direction: column; gap: 1rem; width: 100%; }
+    .hero { min-height: 80vh; padding: 3rem 1.5rem; }
+    .hero-buttons { flex-direction: column; align-items: stretch; }
+    .btn { width: 100%; text-align: center; }
+    .section { padding: 4rem 0; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr; }
+    .footer .container { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 0 1rem; }
+    .hero-title { font-size: 2rem; }
+    .hero-subtitle { font-size: 1rem; }
+    .section-title { font-size: 1.75rem; }
+}
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">Jad Saati | Web Developer</div>
+            <ul class="nav-links">
+                <li><a href="#reel">Reel</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="https://images.unsplash.com/photo-1638741631188-a42a58d5499c" alt="Cinematic Web Development" class="hero-background-image">
+        <div class="hero-content">
+            <h1 class="hero-title">I Build Websites That Drive Real Business Results</h1>
+            <p class="hero-subtitle">E-Commerce · Online Stores · Blogs · Galleries</p>
+            <div class="hero-buttons">
+                <a href="#reel" class="btn btn-primary">Watch My Reel</a>
+                <a href="#projects" class="btn btn-secondary">View Projects</a>
+            </div>
+            <div class="hero-icons">
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-tiktok"></i>
+                <i class="fab fa-instagram"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reel Section --
+    <section class="section reel-section" id="reel">
+        <div class="container">
+            <h2 class="section-title">My Reel</h2>
+            <p class="section-subtitle">A quick look at my web development work and coding content.</p>
+            <div class="video-wrapper">
+                <!-- Replaced with a general web development showcase playlist from freeCodeCamp -->
+                <!--iframe src="https://www.youtube.com/embed/PkZNo7MFNFg"
+                    title="Web Development Showcase Reel"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+--->
+
+    <!-- Projects Section -->
+    <section class="projects-section section" id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <p class="section-subtitle">Here's a selection of the websites I build for clients — each one crafted from scratch.</p>
+            <div class="projects-grid">
+
+                <!-- E-Commerce -->
+                <article class="project-card">
+                    <div class="project-thumbnail">
+                        <img alt="E-Commerce Website" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80" />
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-label">E-Commerce Website</h3>
+                        <p class="project-description">Full-featured e-commerce platform with product listings, cart, checkout flow, and payment integration. Built for conversion and performance.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Shopify / React</span>
+                            <span class="project-tag">Stripe Payments</span>
+                            <span class="project-tag">SEO Optimized</span>
+                        </div>
+                        <a href="#" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog -->
+                <article class="project-card">
+                    <div class="project-thumbnail">
+                        <img alt="Blog Website" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&q=80" />
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-label">Blog Website</h3>
+                        <p class="project-description">Clean, fast-loading blog with CMS integration, category filtering, author pages, and newsletter signup. Optimized for readability and organic growth.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">WordPress / Next.js</span>
+                            <span class="project-tag">CMS Integration</span>
+                            <span class="project-tag">SEO Ready</span>
+                        </div>
+                        <a href="#" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+
+                <!-- Gallery -->
+                <article class="project-card">
+                    <div class="project-thumbnail">
+                        <img alt="Gallery Website" src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&q=80" />
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-label">Gallery Website</h3>
+                        <p class="project-description">Visually stunning portfolio/gallery site with masonry layout, lightbox viewer, category filters, and smooth animations. Perfect for artists and photographers.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML / CSS / JS</span>
+                            <span class="project-tag">Lightbox</span>
+                            <span class="project-tag">Lazy Loading</span>
+                        </div>
+                        <a href="#" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+
+                <!-- Online Store -->
+                <article class="project-card">
+                    <div class="project-thumbnail">
+                        <img alt="Online Store Website" src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&q=80" />
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-label">Online Store</h3>
+                        <p class="project-description">Niche product store with inventory management, discount codes, order tracking, and a seamless mobile checkout — built to scale as the business grows.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">WooCommerce</span>
+                            <span class="project-tag">Mobile-First</span>
+                            <span class="project-tag">Analytics Ready</span>
+                        </div>
+                        <a href="#" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-image-wrapper">
+                    <img class="about-image" alt="Developer working on a web project" src="https://images.unsplash.com/photo-1653043586925-cfb4676c69a2" />
+                </div>
+                <div class="about-content">
+                    <p class="about-text">I'm Jad Saati, a web developer focused on building fast, clean, and conversion-driven websites for businesses and creators. I specialise in e-commerce, online stores, blogs, and portfolios — turning client visions into fully functional, professional web experiences. I care deeply about performance, clean code, and delivering results that actually matter to a business.</p>
+                    <div class="skills-section">
+                        <h3 class="skills-title">What I Do</h3>
+                        <ul class="skills-list">
+                            <li><i class="fas fa-shopping-cart"></i> E-Commerce & Online Stores</li>
+                            <li><i class="fas fa-pen-nib"></i> Blog & CMS Development</li>
+                            <li><i class="fas fa-images"></i> Gallery & Portfolio Sites</li>
+                            <li><i class="fas fa-mobile-alt"></i> Responsive & Mobile-First</li>
+                            <li><i class="fas fa-tachometer-alt"></i> Performance Optimization</li>
+                            <li><i class="fas fa-code"></i> HTML, CSS, JS, React</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section process-section">
+        <div class="container">
+            <h2 class="section-title">How We Work Together</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="process-number">01</div>
+                    <h3 class="process-step-title">Discovery Call</h3>
+                    <p class="process-step-description">We talk about your business goals, target audience, and the type of website you need. I ask the right questions so I can propose the best solution.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">02</div>
+                    <h3 class="process-step-title">Design & Build</h3>
+                    <p class="process-step-description">I design and develop your site with clean code, optimized performance, and your brand in mind — keeping you updated at every key milestone.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">03</div>
+                    <h3 class="process-step-title">Review & Launch</h3>
+                    <p class="process-step-description">You review the finished site, request any changes, and once you're happy — we go live. I handle deployment and make sure everything runs smoothly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section faq-section">
+        <div class="container">
+            <h2 class="section-title">FAQ</h2>
+            <p class="section-subtitle">Everything you need to know before we work together.</p>
+
+            <div class="faq-list">
+
+                <p class="faq-category-label">Pricing & Scope</p>
+
+                <details class="faq-item">
+                    <summary class="faq-question">How much does a website cost?</summary>
+                    <div class="faq-answer">
+                        <p>Pricing depends on the type and complexity of the project. As a general guide:</p>
+                        <ul>
+                            <li><strong>Blog / Portfolio:</strong> starts from <span class="highlight">$300</span></li>
+                            <li><strong>Gallery Site:</strong> starts from <span class="highlight">$400</span></li>
+                            <li><strong>E-Commerce / Online Store:</strong> starts from <span class="highlight">$700</span></li>
+                        </ul>
+                        <p style="margin-top:0.75rem;">Every project gets a custom quote based on your specific requirements. Contact me for a free estimate — no commitment needed.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">What's included in the project price?</summary>
+                    <div class="faq-answer">
+                        <p>Every project includes: design, full development, mobile responsiveness, basic on-page SEO, 2 rounds of revisions, and a handover session where I walk you through how to manage your site. Hosting, domain registration, and third-party service fees (e.g., Stripe, Mailchimp) are separate.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">Do you offer ongoing maintenance after launch?</summary>
+                    <div class="faq-answer">
+                        <p>Yes. I offer monthly maintenance packages covering updates, bug fixes, security patches, and minor content changes. Rates start at <span class="highlight">$80 / month</span>. This is optional — your site is fully yours at launch whether or not you continue working with me.</p>
+                    </div>
+                </details>
+
+                <p class="faq-category-label">Timeline & Process</p>
+
+                <details class="faq-item">
+                    <summary class="faq-question">How long does it take to build a website?</summary>
+                    <div class="faq-answer">
+                        <p>Typical timelines:</p>
+                        <ul>
+                            <li><strong>Blog / Portfolio / Gallery:</strong> 15 days-1 month business days</li>
+                            <li><strong>E-Commerce / Online Store:</strong> 20-30 business days</li>
+                        </ul>
+                        <p style="margin-top:0.75rem;">Timeline depends on how quickly you provide content (text, images, branding) and how many revision rounds are needed. Rush delivery is available for an additional fee.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">What do you need from me to get started?</summary>
+                    <div class="faq-answer">
+                        <p>To kick off the project, I'll need:</p>
+                        <ul>
+                            <li>A clear brief or description of what you want</li>
+                            <li>Your logo and brand assets (if available)</li>
+                            <li>Text / copy for the pages (or approval for me to write it)</li>
+                            <li>Any reference sites you like the look of</li>
+                            <li>A 50% deposit to begin</li>
+                        </ul>
+                        <p style="margin-top:0.75rem;">Don't worry if you're not 100% sure yet — we can work it out together in the discovery call.</p>
+                    </div>
+                </details>
+
+                <p class="faq-category-label">Technical & Delivery</p>
+
+                <details class="faq-item">
+                    <summary class="faq-question">Which technologies and platforms do you use?</summary>
+                    <div class="faq-answer">
+                        <p>I choose the right tool for each project:</p>
+                        <ul>
+                            <li><strong>E-Commerce:</strong> Shopify, WooCommerce, or custom React + Node.js</li>
+                            <li><strong>Blogs / CMS:</strong> WordPress, Webflow, or Next.js + headless CMS</li>
+                            <li><strong>Galleries / Portfolios:</strong> Custom HTML/CSS/JS or React</li>
+                        </ul>
+                        <p style="margin-top:0.75rem;">I recommend the stack that fits your budget, technical comfort level, and long-term needs — not just what I prefer to build with.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">Will my website be mobile-friendly and fast?</summary>
+                    <div class="faq-answer">
+                        <p>Absolutely. Every site I build is fully responsive (works on all screen sizes) and optimized for speed. I target a Google PageSpeed score of <span class="highlight">90+</span> on mobile and <span class="highlight">95+</span> on desktop. Fast, mobile-friendly sites rank better on Google and convert visitors more effectively.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">Will I be able to update the site myself after launch?</summary>
+                    <div class="faq-answer">
+                        <p>Yes I will build for you a private backend -a page that you can manage your own website simply- and if you ordered an e-commerce we can build it depending on the discovery call and your budget -requires zero coding -.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">How do we share files and communicate during the project?</summary>
+                    <div class="faq-answer">
+                        <p>We can work with whatever you're most comfortable with. For files: Google Drive, Dropbox, or WeTransfer. For communication: WhatsApp, email, or LinkedIn. I send progress updates at each key stage so you're never left wondering what's happening.</p>
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Jad Saati. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="https://www.youtube.com/@JadSaatiProgrammer" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@jadsaaty13" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/jadsaaty1" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
